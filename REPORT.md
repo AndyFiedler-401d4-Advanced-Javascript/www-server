@@ -1,8 +1,8 @@
 # OAuth Comparative Analysis
 
-## OAuth Provider Name 
+## OAuth Provider: Amazon 
 
-### Research Conducted By: Student Names
+### Research Conducted By: Andy Fiedler & Jonathon Schwamman
 
 ### Overall Score and Comments
 #### Score (Out of 10): 7
@@ -10,28 +10,29 @@
 Describe the provider. Describe the general usability and learnability.
 
 #### Pros
-* Item 1
-* Item 2
+* Excellent Documentation - explained in normal english with code snippets/examples
+* Easy to integrate Amazon login buttons into site
 
 #### Cons
-* Item 1
-* Item 2
+* "Implicit Grant" returns the authorization code (access_token) in after a hash in the redirected URI. This means it is unable to pass on the token to our backend server.
+
 
 ### Ratings and Reviews
 #### Documentation
-Thoughts go here
+Documentation was easily readable/understandable and clearly laid out in step by step instructions. Code snippets are also provided to easily integrate with your project with thorough explanation of what each piece does.
 
 #### Ramp-Up Projections
-How long would/should it take a team of mid-junior developers to become productive?
+How long would/should it take a team of mid-junior developers to become productive?  
+
+Although we ran into some issues in our implementation we expect using oauth through Amazon could be implemented within 1-2 days.
 
 #### Community Support and Adoption levels
-How popular is this framework? What big companies are running on it? How is it "seen" in the general JS community?  Is there an active community of developers supporting and growing it?
+How popular is this framework? What big companies are running on it? How is it "seen" in the general JS community?  Is there an active community of developers supporting and growing it?  
 
+Amazon is one of the major oauth providers, primarily for ecommerce site since it incorporates access to the amazon wallet. Some major websites using Login With Amazon include Zappos, Woot, MattressFirm, etc.
 
 ### Links and Resources
-* [framework](http://xyz.com)
-* [docs](http://xyz.com)
-* [examples/tutorials](http://xyz.com)
+* [Amazon docs](https://developer.amazon.com/docs/login-with-amazon/web-docs.html)
 
 ### Code Demos
 * [live/running application](http://xyz.com)
@@ -40,7 +41,6 @@ How popular is this framework? What big companies are running on it? How is it "
 ### Operating Instructions
 If someone were to download your repo (above), what steps do they need to take to run the application
 * `npm start`
-* Endpoint: `/foo/bar/`
-  * Returns a JSON object with abc in it.
-* Endpoint: `/bing/zing/`
-  * Returns a JSON object with xyz in it.
+* Endpoint: `/oauth/:provider`
+  * Authorizes user after being returned from oauth provider with access token
+
