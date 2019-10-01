@@ -7,7 +7,7 @@
 ### Overall Score and Comments
 #### Score (Out of 10): 7
 #### General Comments
-Describe the provider. Describe the general usability and learnability.
+See below.
 
 #### Pros
 * Excellent Documentation - explained in normal english with code snippets/examples
@@ -35,8 +35,8 @@ Amazon is one of the major oauth providers, primarily for ecommerce site since i
 * [Amazon docs](https://developer.amazon.com/docs/login-with-amazon/web-docs.html)
 
 ### Code Demos
-* [live/running application](http://xyz.com)
-* [code repository](http://xyz.com)
+* [frontend code repository](https://github.com/AndyFiedler-401d4-Advanced-Javascript/www-server)
+* [backend code repository](https://github.com/AndyFiedler-401d4-Advanced-Javascript/auth-server)
 
 ### Operating Instructions
 If someone were to download your repo (above), what steps do they need to take to run the application
