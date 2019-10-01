@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Auth Test</title>
+    </head>
+    <body>
+        <main>
+            <div id="amazon-root"></div>
+            <div id="oauth"></div>
+
+            <a href id="LoginWithAmazon">
+                <img border="0" alt="Login with Amazon"
+                    src="http://g-ecx.images-amazon.com/images/G/01/lwa/btnLWA_gold_312x64.png"
+                    width="156" height="32" />
+             </a>
+
+         
+
+             <script type="text/javascript">
+              document.getElementById('LoginWithAmazon').onclick = function() {
+                  options = {
+                    'popup': false,
+                    'redirect_uri': 'https://localhost:3000/oauth/amazon'
+                  }
+                  options.scope = 'profile';
+                  options.scope_data = {
+                      'profile' : {'essential': false} 
+                  };
+                  amazon.Login.authorize(options,
+                      'https://localhost:3000/oauth/amazon');
+                  return false;
+              };
+            </script>
+
+        </main>
+
+        <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+
+        <script>
+          //Google oauth =================================================================================
+          let googleURL = "https://accounts.google.com/o/oauth2/v2/auth";
+
+          let options = {
+            client_id:'236668229454-svkikpsg058egjkqjbp53b04mjdf7245.apps.googleusercontent.com',
+            redirect_uri: 'https://localhost:3000/oauth',
+            scope: 'email openid profile',
+            prompt: 'consent',
+            response_type: 'code'
+          };
+
+          let QueryString = Object.keys(options).map( (key,i) => {
+            return `${key}=` + encodeURIComponent(options[key]);
+          }).join("&");
+
+          let authURL = `${googleURL}?${QueryString}`;
+
+          $('#oauth').append(`<a href="${authURL}">Login With Google</a>`);
+
+
+          //Amazon oauth stuff  ==========================================================================
+          
+          window.onAmazonLoginReady = function() {
+            amazon.Login.setClientId('amzn1.application-oa2-client.d644c46314c84bad8eae9ea4672bd4b7');
+          };
+          (function(d) {
+            var a = d.createElement('script'); a.type = 'text/javascript';
+            a.async = true; a.id = 'amazon-login-sdk';
+            a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
+            d.getElementById('amazon-root').appendChild(a);
+          })(document);
+
+        </script>
+
+
+    </body>
+</html>
